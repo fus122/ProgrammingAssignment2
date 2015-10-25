@@ -4,7 +4,7 @@ library(da
         
         ##
         
-        makeCacheMatrix <- function( x = matrix() ) {
+        makeCacheMatrix <- function( g = matrix() ) {
                 
                 ## seta a propriedade de inversao
                 
@@ -13,8 +13,9 @@ library(da
                 ## Definicao da Matriz
                 
                 set <- function( matrix ) {
-                        g <<- matrix
+                       
                         a <<- NULL
+                        g <<- matrix
                 }
                 
                 ## Obtencao da Matriz
@@ -46,10 +47,10 @@ library(da
         ## Calcula a o inverso da Matriz obtida no MakeCacheMatrix 
         ## Caso o inverso ja tenha sido calculado a e a matriz nao tenha se alterado esta funcao devera retornar o inverso do cache
         
-        cacheSolve <- function(x, ...) {
+        cacheSolve <- function(g, ...) {
                 
                 
-                g <- x$getMatrizInversa()
+                g <- g$getMatrizInversa()
                 
                 ## Houve mudanca?
                 
@@ -60,7 +61,7 @@ library(da
                 
                 ## Busca a matriz 
                 
-                data <- x$get()
+                data <- g$get()
                 
                 ## calcula o inverso
                 
@@ -68,7 +69,7 @@ library(da
                 
                 ## estabele o inverso do objeto g
                 
-                x$SetMatrizInversa(g)
+                g$SetMatrizInversa(g)
                 
                 ## retorna a matriz
                 
